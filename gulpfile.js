@@ -49,14 +49,14 @@ gulp.task('tile-js-imports', function(cb) {
       console.log(e);
       cb();
     })
-    .pipe(gulp.dest('./urbit/app/%APPNAME%/js/'))
+    .pipe(gulp.dest('./urbit/app/hapt/js/'))
     .on('end', cb);
 });
 
 gulp.task('tile-js-minify', function () {
-  return gulp.src('./urbit/app/%APPNAME%/js/tile.js')
+  return gulp.src('./urbit/app/hapt/js/tile.js')
     .pipe(minify())
-    .pipe(gulp.dest('./urbit/app/%APPNAME%/js/'));
+    .pipe(gulp.dest('./urbit/app/hapt/js/'));
 });
 
 gulp.task('urbit-copy', function () {
