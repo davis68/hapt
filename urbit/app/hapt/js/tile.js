@@ -19233,9 +19233,9 @@
                 }
                 
                 __init() {this.handleNoteNameChange = idx => evt => {
-                  const newNotes = this.state.notes.map((noht, sidx) => {
-                    if (idx !== sidx) return noht;
-                    return { ...noht, name: evt.target.value };
+                  const newNotes = this.state.notes.map((hapt, sidx) => {
+                    if (idx !== sidx) return hapt;
+                    return { ...hapt, name: evt.target.value };
                   });
 
                   this.setState({ notes: newNotes });
@@ -19245,56 +19245,38 @@
                   this.setState({
                     notes: this.state.notes.concat([{ name: "" }])
                   });
-                  api.action('hapt', 'json', {ship: this.state.ship});
+                  api.action('hapt', 'json', {notes: this.state.notes});
                 };}
 
                 __init3() {this.handleRemoveNote = idx => () => {
                   this.setState({
                     notes: this.state.notes.filter((s, sidx) => idx !== sidx)
                   });
+                  api.action('hapt', 'json', {notes: this.state.notes});
                 };}
-
-                sub() {
-                    api.action('hapt', 'json', {ship: this.state.ship});
-                }
-
-                handleChange(event) {
-                    this.setState({ship: event.target.value});
-                }
 
                 render() {
                   return (
-                    react.createElement('div', { className: "w-100 h-100 relative"  , style: { background: '#1a1a1a' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 51}}
-                    , react.createElement('p', { className: "gray label-regular b absolute"   , style: { left: 8, top: 4 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 52}}, "Noht")
-            , react.createElement('div', { className: "absolute", style: { top: 25, left: 8 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 53}}
-            , react.createElement('form', { onSubmit: this.handleSubmit, __self: this, __source: {fileName: _jsxFileName, lineNumber: 54}}
-                      , this.state.notes.map((noht, idx) => (
-                        react.createElement('div', { className: "noht", __self: this, __source: {fileName: _jsxFileName, lineNumber: 56}}
-                          , react.createElement('table', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 57}}, react.createElement('tr', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 57}}
-                          , react.createElement('td', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 58}}, react.createElement('input', { type: "text", style: { width: 184}, placeholder: `Note #${idx + 1} name`, value: noht.name, onChange: this.handleNoteNameChange(idx), __self: this, __source: {fileName: _jsxFileName, lineNumber: 58}} ))
-                          , react.createElement('td', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 59}}, react.createElement('button', { type: "button", onClick: this.handleRemoveNote(idx), className: "small", __self: this, __source: {fileName: _jsxFileName, lineNumber: 59}}, "–"))
+                    react.createElement('div', { className: "w-100 h-100 relative"  , style: { background: '#1a1a1a' }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 44}}
+                    , react.createElement('p', { className: "gray label-regular b absolute"   , style: { left: 8, top: 4 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 45}}, "Hapt")
+            , react.createElement('div', { className: "absolute", style: { top: 25, left: 8 }, __self: this, __source: {fileName: _jsxFileName, lineNumber: 46}}
+            , react.createElement('form', { onSubmit: this.handleSubmit, __self: this, __source: {fileName: _jsxFileName, lineNumber: 47}}
+                      , this.state.notes.map((hapt, idx) => (
+                        react.createElement('div', { className: "hapt", __self: this, __source: {fileName: _jsxFileName, lineNumber: 49}}
+                          , react.createElement('table', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 50}}, react.createElement('tr', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 50}}
+                          , react.createElement('td', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 51}}, react.createElement('input', { type: "text", style: { width: 184}, placeholder: `Note #${idx + 1} name`, value: hapt.name, onChange: this.handleNoteNameChange(idx), __self: this, __source: {fileName: _jsxFileName, lineNumber: 51}} ))
+                          , react.createElement('td', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 52}}, react.createElement('button', { type: "button", onClick: this.handleRemoveNote(idx), className: "small", __self: this, __source: {fileName: _jsxFileName, lineNumber: 52}}, "–"))
                   ))
                         )
                       ))
-                      , react.createElement('button', { type: "button", onClick: this.handleAddNote, className: "small", __self: this, __source: {fileName: _jsxFileName, lineNumber: 63}}, "New Note" )
+                      , react.createElement('table', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 56}}, react.createElement('tr', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 56}}
+                      , react.createElement('td', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 57}}, react.createElement('button', { type: "button", onClick: this.handleAddNote, className: "small", __self: this, __source: {fileName: _jsxFileName, lineNumber: 57}}, "New Note" ))
+                      ))
                     )
             )
                     )
                 );
               }
-                /*return (
-                  <div className="w-100 h-100 relative" style={{ background: '#1a1a1a' }}>
-                    <p className="gray label-regular b absolute" style={{ left: 8, top: 4 }}>Testing</p>
-                    <p className="white absolute" style={{ top: 25, left: 8 }}>Hi a ship {this.props.data.status}</p>
-                    <p className="white absolute" style={{ top: 100, left: 8 }}>
-                    <button onClick={this.sub.bind(this)}>stuff</button></p>
-                    <p className="white absolute" style={{ top: 150, left: 15 }}>
-                    <input type="text" value={this.state.ship}
-                     onChange={this.handleChange.bind(this)}/></p>
-                  </div>/
-                );
-              }/**/
-
             }
 
             window.haptTile = haptTile;

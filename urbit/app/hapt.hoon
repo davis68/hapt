@@ -18,8 +18,10 @@
       [%http-response =http-event:http]
       [%connect wire binding:eyre term]
       [%diff %json json]
+      [%wait path @da]
   ==
 --
+=|  notelist=(list *)
 |_  [bol=bowl:gall ~]
 ++  this  .
 ++  bound
@@ -60,27 +62,17 @@
   ==
 ++  poke-json
   |=  jon=json
-  ^-  (quip move _this)
+  ^+  [*(list move) +>.$]
   ~&  'poke-json in hapt called'
   ~&  jon
   =/  json-map    ((om:dejs:format same) jon)
-  =/  ship-to-hi  (so:dejs:format (~(got by json-map) %ship))
-  ~&  ship-to-hi
-  =/  sthu  (need (slaw %p ship-to-hi))
-  :_  this
-  %+  weld
-    (send-status-diff "looking")
-  ^-  (list move)
-  :~
-    :-  ost.bol
-    :^  %poke
-        /helm/hi/[ship-to-hi]
-      [sthu %hood]
-    [%helm-hi '']
-  ==
+  ~&  json-map
+  =.  notelist  ~[jon]
+  :_  +>.$  :_  ~
+  [ost.bol %wait /hapt ~2019.11.5..02.12.32..9af6]  :: stupid placeholder
 ++  coup-helm-hi
   |=  [pax=path cop=(unit tang)]
-  ~&  ["Coup recieved" pax]
+  ~&  ["Coup received" pax]
   :_  this
   ?~  cop
     (send-status-diff "successfully found {<pax>}")
